@@ -1,0 +1,29 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  localization_path: ./assets/translations/
+  localization_output: ./lib/generated/
+
+tasks:
+  build_runner:
+    cmds:
+      - dart run build_runner watch --delete-conflicting-outputs
+    silent: true
+
+  generate_icon:
+    cmds:
+      - dart run flutter_launcher_icons:generate --override
+
+  generate_localization:
+    cmds:
+      - flutter pub run easy_localization:generate -S {{.localization_path}} -f keys -o locale_keys.g.dart -O {{.localization_output}}
+
+  dependency_validator:
+    cmds:
+      - dart pub global run dependency_validator
+
+  dependency_validator_install:
+    cmds:
+      - dart pub global activate dependency_validator
