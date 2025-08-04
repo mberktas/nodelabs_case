@@ -1,7 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
-
-import "./injectable.config.dart";
+import 'package:nodelabs_case/app/di/injectable.config.dart';
 
 /// DI Container
 final sl = GetIt.instance;

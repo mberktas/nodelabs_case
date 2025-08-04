@@ -1,0 +1,11 @@
+{
+	"login": {
+		"title": "Hello, Welcome Back",
+		"subtitle": "Tempus varius a vitae interdum id tortor elementum tristique eleifend at.",
+		"email": "Email",
+		"password": "Password",
+		"login": "Login",
+		"dontHaveAccount": "Don't have an account?",
+		"signUp": "Sign Up"
+	}
+}

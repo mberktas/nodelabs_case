@@ -1,0 +1,13 @@
+{
+	"login": {
+		"title": "Merhaba, Hoş Geldiniz",
+		"subtitle": "Tempus varius a vitae interdum id tortor elementum tristique eleifend at.",
+		"email": "E-Posta",
+		"password": "Şifre",
+		"login": "Giriş Yap",
+		"dontHaveAccount": "Hesabınız yok mu?",
+		"signUp": "Kayıt Ol",
+		"success": "Giriş başarılı! Yönlendiriliyorsunuz...",
+		"error": "Giriş başarısız! Lütfen bilgilerinizi kontrol edin."
+	}
+}
