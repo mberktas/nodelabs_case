@@ -32,7 +32,7 @@ class _BootViewState extends State<BootView> {
           children: [
             Assets.images.logo.image(width: 256.w),
             SizedBox(height: 20.h),
-            Loading(),
+            DSLoading(),
           ],
         );
       },

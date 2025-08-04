@@ -52,7 +52,7 @@ class _SplashContent extends StatelessWidget {
           children: [
             Assets.images.logo.image(width: 256.w),
             SizedBox(height: 20.h),
-            Loading(),
+            const DSLoading(),
           ],
         );
       },
