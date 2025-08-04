@@ -1,12 +1,14 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nodelabs_case/app/di/injectable.dart';
 import 'package:nodelabs_case/app/extension/context_extension.dart';
+import 'package:nodelabs_case/app/navigation/routes.dart';
 import 'package:nodelabs_case/core/logger/logger.dart';
 import 'package:nodelabs_case/core/validator/validator.dart';
-import 'package:nodelabs_case/feature/auth/presentation/bloc/login_bloc.dart';
+import 'package:nodelabs_case/feature/auth/presentation/bloc/login/login_bloc.dart';
 import 'package:nodelabs_case/generated/locale_keys.g.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
@@ -55,11 +57,14 @@ class __LoginContentState extends State<_LoginContent> {
           },
           success: () {
             logger.d('Login successful');
-            ShadToaster.of(context).show(
-              ShadToast(
-                description: Text(context.tr(LocaleKeys.login_success)),
-              ),
-            );
+            // ShadToaster.of(context).show(
+            //   ShadToast(
+            //     description: Text(context.tr(LocaleKeys.login_success)),
+            //   ),
+            // );
+
+            context.router.popUntilRoot();
+            context.router.replacePath(Routes.explore.path);
           },
           error: (error) {
             logger.e('Login failed: $error');
@@ -162,7 +167,9 @@ class __LoginContentState extends State<_LoginContent> {
                         SizedBox(width: 4.w),
                         ShadButton.ghost(
                           padding: EdgeInsets.zero,
-                          onPressed: () {},
+                          onPressed: () {
+                            context.router.pushPath(Routes.signup.path);
+                          },
                           child: Text(
                             context.tr(LocaleKeys.login_signUp),
                             style: context.textTheme.small.copyWith(

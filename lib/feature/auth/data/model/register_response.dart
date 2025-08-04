@@ -7,13 +7,12 @@ part 'register_response.g.dart';
 sealed class RegisterResponse with _$RegisterResponse {
   const factory RegisterResponse({
     required String id,
-    required String loginResponseId,
     required String name,
     required String email,
-    required String photoUrl,
+    String? photoUrl,
     required String token,
-  }) = _LoginResponse;
+  }) = _RegisterResponse;
 
   factory RegisterResponse.fromJson(Map<String, dynamic> json) =>
-      _$LoginResponseFromJson(json);
+      _$RegisterResponseFromJson(json);
 }

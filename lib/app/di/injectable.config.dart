@@ -19,7 +19,8 @@ import '../../core/storage/secure_storage.dart' as _i108;
 import '../../feature/auth/data/datasource/auth_api.dart' as _i393;
 import '../../feature/auth/data/repository/auth_repository_impl.dart' as _i648;
 import '../../feature/auth/domain/repository/auth_repository.dart' as _i884;
-import '../../feature/auth/presentation/bloc/login_bloc.dart' as _i5;
+import '../../feature/auth/presentation/bloc/login/login_bloc.dart' as _i604;
+import '../../feature/auth/presentation/bloc/signup/signup_bloc.dart' as _i297;
 import '../config/app_config.dart' as _i650;
 import '../service/secure_storage_service.dart' as _i142;
 import '../service/session_storage_service.dart' as _i683;
@@ -52,8 +53,15 @@ _i174.GetIt $initGetIt(
   gh.factory<_i884.AuthRepository>(
     () => _i648.AuthRepositoryImpl(gh<_i393.AuthApi>()),
   );
-  gh.factory<_i5.LoginBloc>(
-    () => _i5.LoginBloc(gh<_i884.AuthRepository>(), gh<_i432.SessionManager>()),
+  gh.factory<_i297.SignupBloc>(
+    () => _i297.SignupBloc(
+      gh<_i884.AuthRepository>(),
+      gh<_i432.SessionManager>(),
+    ),
+  );
+  gh.factory<_i604.LoginBloc>(
+    () =>
+        _i604.LoginBloc(gh<_i884.AuthRepository>(), gh<_i432.SessionManager>()),
   );
   return getIt;
 }

@@ -9,5 +9,20 @@
 		"signUp": "Kayıt Ol",
 		"success": "Giriş başarılı! Yönlendiriliyorsunuz...",
 		"error": "Giriş başarısız! Lütfen bilgilerinizi kontrol edin."
+	},
+
+	"signup": {
+		"title": "Kayıt Ol",
+		"subtitle": "Tempus varius a vitae interdum id tortor elementum tristique eleifend at.",
+		"name": "Ad Soyad",
+		"email": "E-Posta",
+		"password": "Şifre",
+		"confirmPassword": "Şifreyi Onayla",
+		"signUp": "Kayıt Ol",
+		"alreadyHaveAccount": "Zaten hesabınız var mı?",
+		"login": "Giriş Yap",
+		"success": "Kayıt başarılı! Yönlendiriliyorsunuz...",
+		"error": "Kayıt başarısız! Lütfen bilgilerinizi kontrol edin.",
+		"passwordsDoNotMatch": "Şifreler eşleşmiyor! Lütfen tekrar deneyin."
 	}
 }

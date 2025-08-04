@@ -11,18 +11,11 @@ part of 'register_response.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
-RegisterResponse _$RegisterResponseFromJson(
-  Map<String, dynamic> json
-) {
-    return _LoginResponse.fromJson(
-      json
-    );
-}
 
 /// @nodoc
 mixin _$RegisterResponse {
 
- String get id; String get loginResponseId; String get name; String get email; String get photoUrl; String get token;
+ String get id; String get name; String get email; String? get photoUrl; String get token;
 /// Create a copy of RegisterResponse
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -35,16 +28,16 @@ $RegisterResponseCopyWith<RegisterResponse> get copyWith => _$RegisterResponseCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is RegisterResponse&&(identical(other.id, id) || other.id == id)&&(identical(other.loginResponseId, loginResponseId) || other.loginResponseId == loginResponseId)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.photoUrl, photoUrl) || other.photoUrl == photoUrl)&&(identical(other.token, token) || other.token == token));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is RegisterResponse&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.photoUrl, photoUrl) || other.photoUrl == photoUrl)&&(identical(other.token, token) || other.token == token));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,loginResponseId,name,email,photoUrl,token);
+int get hashCode => Object.hash(runtimeType,id,name,email,photoUrl,token);
 
 @override
 String toString() {
-  return 'RegisterResponse(id: $id, loginResponseId: $loginResponseId, name: $name, email: $email, photoUrl: $photoUrl, token: $token)';
+  return 'RegisterResponse(id: $id, name: $name, email: $email, photoUrl: $photoUrl, token: $token)';
 }
 
 
@@ -55,7 +48,7 @@ abstract mixin class $RegisterResponseCopyWith<$Res>  {
   factory $RegisterResponseCopyWith(RegisterResponse value, $Res Function(RegisterResponse) _then) = _$RegisterResponseCopyWithImpl;
 @useResult
 $Res call({
- String id, String loginResponseId, String name, String email, String photoUrl, String token
+ String id, String name, String email, String? photoUrl, String token
 });
 
 
@@ -72,14 +65,13 @@ class _$RegisterResponseCopyWithImpl<$Res>
 
 /// Create a copy of RegisterResponse
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? loginResponseId = null,Object? name = null,Object? email = null,Object? photoUrl = null,Object? token = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? email = null,Object? photoUrl = freezed,Object? token = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,loginResponseId: null == loginResponseId ? _self.loginResponseId : loginResponseId // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
-as String,photoUrl: null == photoUrl ? _self.photoUrl : photoUrl // ignore: cast_nullable_to_non_nullable
-as String,token: null == token ? _self.token : token // ignore: cast_nullable_to_non_nullable
+as String,photoUrl: freezed == photoUrl ? _self.photoUrl : photoUrl // ignore: cast_nullable_to_non_nullable
+as String?,token: null == token ? _self.token : token // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
@@ -101,10 +93,10 @@ extension RegisterResponsePatterns on RegisterResponse {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _LoginResponse value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _RegisterResponse value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _LoginResponse() when $default != null:
+case _RegisterResponse() when $default != null:
 return $default(_that);case _:
   return orElse();
 
@@ -123,10 +115,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _LoginResponse value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _RegisterResponse value)  $default,){
 final _that = this;
 switch (_that) {
-case _LoginResponse():
+case _RegisterResponse():
 return $default(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
@@ -141,10 +133,10 @@ return $default(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _LoginResponse value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _RegisterResponse value)?  $default,){
 final _that = this;
 switch (_that) {
-case _LoginResponse() when $default != null:
+case _RegisterResponse() when $default != null:
 return $default(_that);case _:
   return null;
 
@@ -162,10 +154,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String loginResponseId,  String name,  String email,  String photoUrl,  String token)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  String email,  String? photoUrl,  String token)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _LoginResponse() when $default != null:
-return $default(_that.id,_that.loginResponseId,_that.name,_that.email,_that.photoUrl,_that.token);case _:
+case _RegisterResponse() when $default != null:
+return $default(_that.id,_that.name,_that.email,_that.photoUrl,_that.token);case _:
   return orElse();
 
 }
@@ -183,10 +175,10 @@ return $default(_that.id,_that.loginResponseId,_that.name,_that.email,_that.phot
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String loginResponseId,  String name,  String email,  String photoUrl,  String token)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  String email,  String? photoUrl,  String token)  $default,) {final _that = this;
 switch (_that) {
-case _LoginResponse():
-return $default(_that.id,_that.loginResponseId,_that.name,_that.email,_that.photoUrl,_that.token);}
+case _RegisterResponse():
+return $default(_that.id,_that.name,_that.email,_that.photoUrl,_that.token);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -200,10 +192,10 @@ return $default(_that.id,_that.loginResponseId,_that.name,_that.email,_that.phot
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String loginResponseId,  String name,  String email,  String photoUrl,  String token)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  String email,  String? photoUrl,  String token)?  $default,) {final _that = this;
 switch (_that) {
-case _LoginResponse() when $default != null:
-return $default(_that.id,_that.loginResponseId,_that.name,_that.email,_that.photoUrl,_that.token);case _:
+case _RegisterResponse() when $default != null:
+return $default(_that.id,_that.name,_that.email,_that.photoUrl,_that.token);case _:
   return null;
 
 }
@@ -214,51 +206,50 @@ return $default(_that.id,_that.loginResponseId,_that.name,_that.email,_that.phot
 /// @nodoc
 @JsonSerializable()
 
-class _LoginResponse implements RegisterResponse {
-  const _LoginResponse({required this.id, required this.loginResponseId, required this.name, required this.email, required this.photoUrl, required this.token});
-  factory _LoginResponse.fromJson(Map<String, dynamic> json) => _$LoginResponseFromJson(json);
+class _RegisterResponse implements RegisterResponse {
+  const _RegisterResponse({required this.id, required this.name, required this.email, this.photoUrl, required this.token});
+  factory _RegisterResponse.fromJson(Map<String, dynamic> json) => _$RegisterResponseFromJson(json);
 
 @override final  String id;
-@override final  String loginResponseId;
 @override final  String name;
 @override final  String email;
-@override final  String photoUrl;
+@override final  String? photoUrl;
 @override final  String token;
 
 /// Create a copy of RegisterResponse
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$LoginResponseCopyWith<_LoginResponse> get copyWith => __$LoginResponseCopyWithImpl<_LoginResponse>(this, _$identity);
+_$RegisterResponseCopyWith<_RegisterResponse> get copyWith => __$RegisterResponseCopyWithImpl<_RegisterResponse>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$LoginResponseToJson(this, );
+  return _$RegisterResponseToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LoginResponse&&(identical(other.id, id) || other.id == id)&&(identical(other.loginResponseId, loginResponseId) || other.loginResponseId == loginResponseId)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.photoUrl, photoUrl) || other.photoUrl == photoUrl)&&(identical(other.token, token) || other.token == token));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _RegisterResponse&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.photoUrl, photoUrl) || other.photoUrl == photoUrl)&&(identical(other.token, token) || other.token == token));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,loginResponseId,name,email,photoUrl,token);
+int get hashCode => Object.hash(runtimeType,id,name,email,photoUrl,token);
 
 @override
 String toString() {
-  return 'RegisterResponse(id: $id, loginResponseId: $loginResponseId, name: $name, email: $email, photoUrl: $photoUrl, token: $token)';
+  return 'RegisterResponse(id: $id, name: $name, email: $email, photoUrl: $photoUrl, token: $token)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$LoginResponseCopyWith<$Res> implements $RegisterResponseCopyWith<$Res> {
-  factory _$LoginResponseCopyWith(_LoginResponse value, $Res Function(_LoginResponse) _then) = __$LoginResponseCopyWithImpl;
+abstract mixin class _$RegisterResponseCopyWith<$Res> implements $RegisterResponseCopyWith<$Res> {
+  factory _$RegisterResponseCopyWith(_RegisterResponse value, $Res Function(_RegisterResponse) _then) = __$RegisterResponseCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String loginResponseId, String name, String email, String photoUrl, String token
+ String id, String name, String email, String? photoUrl, String token
 });
 
 
@@ -266,23 +257,22 @@ $Res call({
 
 }
 /// @nodoc
-class __$LoginResponseCopyWithImpl<$Res>
-    implements _$LoginResponseCopyWith<$Res> {
-  __$LoginResponseCopyWithImpl(this._self, this._then);
+class __$RegisterResponseCopyWithImpl<$Res>
+    implements _$RegisterResponseCopyWith<$Res> {
+  __$RegisterResponseCopyWithImpl(this._self, this._then);
 
-  final _LoginResponse _self;
-  final $Res Function(_LoginResponse) _then;
+  final _RegisterResponse _self;
+  final $Res Function(_RegisterResponse) _then;
 
 /// Create a copy of RegisterResponse
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? loginResponseId = null,Object? name = null,Object? email = null,Object? photoUrl = null,Object? token = null,}) {
-  return _then(_LoginResponse(
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? email = null,Object? photoUrl = freezed,Object? token = null,}) {
+  return _then(_RegisterResponse(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,loginResponseId: null == loginResponseId ? _self.loginResponseId : loginResponseId // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
-as String,photoUrl: null == photoUrl ? _self.photoUrl : photoUrl // ignore: cast_nullable_to_non_nullable
-as String,token: null == token ? _self.token : token // ignore: cast_nullable_to_non_nullable
+as String,photoUrl: freezed == photoUrl ? _self.photoUrl : photoUrl // ignore: cast_nullable_to_non_nullable
+as String?,token: null == token ? _self.token : token // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }

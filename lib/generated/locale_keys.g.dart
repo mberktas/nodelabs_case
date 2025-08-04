@@ -13,5 +13,18 @@ abstract class  LocaleKeys {
   static const login_success = 'login.success';
   static const login_error = 'login.error';
   static const login = 'login';
+  static const signup_title = 'signup.title';
+  static const signup_subtitle = 'signup.subtitle';
+  static const signup_name = 'signup.name';
+  static const signup_email = 'signup.email';
+  static const signup_password = 'signup.password';
+  static const signup_confirmPassword = 'signup.confirmPassword';
+  static const signup_signUp = 'signup.signUp';
+  static const signup_alreadyHaveAccount = 'signup.alreadyHaveAccount';
+  static const signup_login = 'signup.login';
+  static const signup_success = 'signup.success';
+  static const signup_error = 'signup.error';
+  static const signup_passwordsDoNotMatch = 'signup.passwordsDoNotMatch';
+  static const signup = 'signup';
 
 }

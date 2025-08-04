@@ -2,8 +2,9 @@ enum Routes {
   home('HomeRoute', '/home'),
   boot('BootRoute', '/'),
   main('MainRoute', '/main'),
+  explore('ExploreRoute', '/explore'),
   login('LoginRoute', '/auth/login'),
-  register('RegisterRoute', '/auth/register');
+  signup('SignupRoute', '/auth/signup');
 
   final String name, path;
   const Routes(this.name, this.path);
