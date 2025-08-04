@@ -38,6 +38,21 @@ class __LoginContentState extends State<_LoginContent> {
   bool obscurePassword = true;
   bool isLoading = false;
 
+  void submitLoginForm() {
+    final form = formKey.currentState;
+    if (!(form?.saveAndValidate() ?? false)) {
+      return;
+    }
+
+    final formData = form!.value;
+    final String email = formData[emailFormFieldId] as String;
+    final String password = formData[passwordFormFieldId] as String;
+
+    context.read<LoginBloc>().add(
+      LoginEvent.loginRequested(email: email, password: password),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocListener<LoginBloc, LoginState>(
@@ -138,22 +153,7 @@ class __LoginContentState extends State<_LoginContent> {
                       child: !isLoading
                           ? Text(context.tr(LocaleKeys.login_login))
                           : CircularProgressIndicator.adaptive(),
-                      onPressed: () {
-                        final form = formKey.currentState;
-                        if (form?.saveAndValidate() ?? false) {
-                          final String email =
-                              form?.value[emailFormFieldId] as String;
-                          final String password =
-                              form?.value[passwordFormFieldId] as String;
-
-                          context.read<LoginBloc>().add(
-                            LoginEvent.loginRequested(
-                              email: email,
-                              password: password,
-                            ),
-                          );
-                        }
-                      },
+                      onPressed: submitLoginForm,
                     ),
                     SizedBox(height: 24.h),
                     Row(

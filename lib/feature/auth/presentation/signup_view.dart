@@ -25,7 +25,7 @@ class SignupView extends StatelessWidget {
 }
 
 class _SignupContent extends StatefulWidget {
-  const _SignupContent({super.key});
+  const _SignupContent();
 
   @override
   State<_SignupContent> createState() => __SignupContentState();
@@ -41,6 +41,33 @@ class __SignupContentState extends State<_SignupContent> {
   bool obscurePassword = true;
 
   bool isLoading = false;
+
+  void submitSignupForm() {
+    final form = formKey.currentState;
+    if (!(form?.saveAndValidate() ?? false)) {
+      return;
+    }
+
+    final formData = form!.value;
+    final String email = formData[emailFormFieldId] as String;
+    final String password = formData[passwordFormFieldId] as String;
+    final String confirmPassword =
+        formData[confirmPasswordFormFieldId] as String;
+    final String name = formData[nameFormFieldId] as String;
+
+    if (password != confirmPassword) {
+      ShadToaster.of(context).show(
+        ShadToast.destructive(
+          description: Text(context.tr(LocaleKeys.signup_passwordsDoNotMatch)),
+        ),
+      );
+      return;
+    }
+
+    context.read<SignupBloc>().add(
+      SignupEvent.signupRequested(email: email, password: password, name: name),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -156,41 +183,7 @@ class __SignupContentState extends State<_SignupContent> {
                       child: !isLoading
                           ? Text(context.tr(LocaleKeys.signup_signUp))
                           : CircularProgressIndicator.adaptive(),
-                      onPressed: () {
-                        final form = formKey.currentState;
-                        if (form?.saveAndValidate() ?? false) {
-                          final String email =
-                              form?.value[emailFormFieldId] as String;
-                          final String password =
-                              form?.value[passwordFormFieldId] as String;
-                          final String confirmPassword =
-                              form?.value[confirmPasswordFormFieldId] as String;
-                          final String name =
-                              form?.value[nameFormFieldId] as String;
-
-                          if (password != confirmPassword) {
-                            ShadToaster.of(context).show(
-                              ShadToast.destructive(
-                                description: Text(
-                                  context.tr(
-                                    LocaleKeys.signup_passwordsDoNotMatch,
-                                  ),
-                                ),
-                              ),
-                            );
-
-                            return;
-                          }
-
-                          context.read<SignupBloc>().add(
-                            SignupEvent.signupRequested(
-                              email: email,
-                              password: password,
-                              name: name,
-                            ),
-                          );
-                        }
-                      },
+                      onPressed: submitSignupForm,
                     ),
                     SizedBox(height: 24.h),
                     Row(

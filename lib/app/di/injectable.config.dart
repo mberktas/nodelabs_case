@@ -21,6 +21,7 @@ import '../../feature/auth/data/repository/auth_repository_impl.dart' as _i648;
 import '../../feature/auth/domain/repository/auth_repository.dart' as _i884;
 import '../../feature/auth/presentation/bloc/login/login_bloc.dart' as _i604;
 import '../../feature/auth/presentation/bloc/signup/signup_bloc.dart' as _i297;
+import '../../feature/boot/presentation/bloc/splash_bloc.dart' as _i844;
 import '../config/app_config.dart' as _i650;
 import '../service/secure_storage_service.dart' as _i142;
 import '../service/session_storage_service.dart' as _i683;
@@ -45,6 +46,9 @@ _i174.GetIt $initGetIt(
   );
   gh.singleton<_i432.SessionManager>(
     () => _i432.SessionManager(gh<_i683.SessionStorageService>()),
+  );
+  gh.factory<_i844.SplashBloc>(
+    () => _i844.SplashBloc(gh<_i432.SessionManager>()),
   );
   gh.lazySingleton<_i361.Dio>(() => dioModule.dio(gh<_i432.SessionManager>()));
   gh.factoryParam<_i393.AuthApi, String?, dynamic>(

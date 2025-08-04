@@ -2,7 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:nodelabs_case/app/navigation/routes.dart';
 import 'package:nodelabs_case/feature/auth/presentation/login_view.dart';
 import 'package:nodelabs_case/feature/auth/presentation/signup_view.dart';
-import 'package:nodelabs_case/feature/boot/presentation/boot_page.dart';
+import 'package:nodelabs_case/feature/boot/presentation/boot_view.dart';
+import 'package:nodelabs_case/feature/boot/presentation/splash_view.dart';
 import 'package:nodelabs_case/feature/explore/presentation/explore_view.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Page|Screen|View,Route')
@@ -13,7 +14,13 @@ class AppRouter extends RootStackRouter {
       initial: true,
       name: Routes.boot.name,
       path: Routes.boot.path,
-      builder: (context, data) => const BootPage(),
+      builder: (context, data) => const BootView(),
+    ),
+
+    NamedRouteDef(
+      name: Routes.splash.name,
+      path: Routes.splash.path,
+      builder: (context, data) => const SplashView(),
     ),
 
     NamedRouteDef(

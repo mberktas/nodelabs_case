@@ -1,6 +1,7 @@
 enum Routes {
   home('HomeRoute', '/home'),
   boot('BootRoute', '/'),
+  splash('SplashRoute', '/splash'),
   main('MainRoute', '/main'),
   explore('ExploreRoute', '/explore'),
   login('LoginRoute', '/auth/login'),
