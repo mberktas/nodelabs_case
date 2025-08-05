@@ -88,11 +88,11 @@ class __SignupContentState extends State<_SignupContent> {
           },
           success: () {
             logger.d('Signup successful');
-            ShadToaster.of(context).show(
-              ShadToast(
-                description: Text(context.tr(LocaleKeys.signup_success)),
-              ),
-            );
+            // ShadToaster.of(context).show(
+            //   ShadToast(
+            //     description: Text(context.tr(LocaleKeys.signup_success)),
+            //   ),
+            // );
             context.router.popUntilRoot();
             context.router.replacePath(Routes.main.path);
           },
