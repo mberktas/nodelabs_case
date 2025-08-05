@@ -34,7 +34,6 @@ class _ExploreContent extends StatefulWidget {
 class _ExploreContentState extends State<_ExploreContent> {
   final PageController _pageController = PageController();
   int _currentIndex = 0;
-  bool _isFetching = false;
 
   @override
   void initState() {
@@ -86,7 +85,9 @@ class _ExploreContentState extends State<_ExploreContent> {
                           width: double.infinity,
                           height: double.infinity,
                           loadingBuilder: (context, child, loadingProgress) {
-                            if (loadingProgress == null) return child;
+                            if (loadingProgress == null) {
+                              return child;
+                            }
                             return const Center(
                               child: CircularProgressIndicator(),
                             );

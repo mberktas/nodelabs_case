@@ -79,7 +79,7 @@ class __LoginContentState extends State<_LoginContent> {
             // );
 
             context.router.popUntilRoot();
-            context.router.replacePath(Routes.explore.path);
+            context.router.replacePath(Routes.main.path);
           },
           error: (error) {
             logger.e('Login failed: $error');

@@ -32,7 +32,7 @@ class _SplashContent extends StatelessWidget {
           loading: () {},
           success: () {
             context.router.popUntilRoot();
-            context.router.replacePath(Routes.explore.path);
+            context.router.replacePath(Routes.main.path);
           },
           error: (message) {},
           noSession: () {

@@ -3,7 +3,8 @@ enum Routes {
   boot('BootRoute', '/'),
   splash('SplashRoute', '/splash'),
   main('MainRoute', '/main'),
-  explore('ExploreRoute', '/explore'),
+  explore('ExploreRoute', 'explore'),
+  account('AccountRoute', 'account'),
   login('LoginRoute', '/auth/login'),
   signup('SignupRoute', '/auth/signup');
 

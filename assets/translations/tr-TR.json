@@ -24,5 +24,11 @@
 		"success": "Kayıt başarılı! Yönlendiriliyorsunuz...",
 		"error": "Kayıt başarısız! Lütfen bilgilerinizi kontrol edin.",
 		"passwordsDoNotMatch": "Şifreler eşleşmiyor! Lütfen tekrar deneyin."
+	},
+
+	"account": {
+		"title": "Profil",
+		"myLikedMovies": "Beğendiğim Filmler",
+		"addPhoto": "Fotoğraf Ekle"
 	}
 }

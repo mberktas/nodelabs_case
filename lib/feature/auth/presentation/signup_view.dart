@@ -94,7 +94,7 @@ class __SignupContentState extends State<_SignupContent> {
               ),
             );
             context.router.popUntilRoot();
-            context.router.replacePath(Routes.explore.path);
+            context.router.replacePath(Routes.main.path);
           },
           failure: (message) {
             logger.e('Signup failed: $message');

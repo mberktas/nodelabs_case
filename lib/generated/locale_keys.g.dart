@@ -26,5 +26,9 @@ abstract class  LocaleKeys {
   static const signup_error = 'signup.error';
   static const signup_passwordsDoNotMatch = 'signup.passwordsDoNotMatch';
   static const signup = 'signup';
+  static const account_title = 'account.title';
+  static const account_myLikedMovies = 'account.myLikedMovies';
+  static const account_addPhoto = 'account.addPhoto';
+  static const account = 'account';
 
 }

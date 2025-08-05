@@ -16,6 +16,12 @@ import 'package:injectable/injectable.dart' as _i526;
 
 import '../../core/networking/dio_module.dart' as _i932;
 import '../../core/storage/secure_storage.dart' as _i108;
+import '../../feature/account/data/datasource/account_api.dart' as _i249;
+import '../../feature/account/data/repository/account_repository_impl.dart'
+    as _i996;
+import '../../feature/account/domain/repository/account_repository.dart'
+    as _i429;
+import '../../feature/account/presentation/bloc/account_bloc.dart' as _i124;
 import '../../feature/auth/data/datasource/auth_api.dart' as _i393;
 import '../../feature/auth/data/repository/auth_repository_impl.dart' as _i648;
 import '../../feature/auth/domain/repository/auth_repository.dart' as _i884;
@@ -63,8 +69,14 @@ _i174.GetIt $initGetIt(
   gh.factoryParam<_i371.MovieApi, String?, dynamic>(
     (baseUrl, _) => _i371.MovieApi(gh<_i361.Dio>(), baseUrl: baseUrl),
   );
+  gh.factoryParam<_i249.AccountApi, String?, dynamic>(
+    (baseUrl, _) => _i249.AccountApi(gh<_i361.Dio>(), baseUrl: baseUrl),
+  );
   gh.factory<_i705.ExploreRepository>(
     () => _i662.ExploreRepositoryImpl(gh<_i371.MovieApi>()),
+  );
+  gh.factory<_i429.AccountRepository>(
+    () => _i996.AccountRepositoryImpl(gh<_i249.AccountApi>()),
   );
   gh.factory<_i884.AuthRepository>(
     () => _i648.AuthRepositoryImpl(gh<_i393.AuthApi>()),
@@ -81,6 +93,12 @@ _i174.GetIt $initGetIt(
   );
   gh.factory<_i1059.ExploreBloc>(
     () => _i1059.ExploreBloc(gh<_i705.ExploreRepository>()),
+  );
+  gh.factory<_i124.AccountBloc>(
+    () => _i124.AccountBloc(
+      gh<_i429.AccountRepository>(),
+      gh<_i432.SessionManager>(),
+    ),
   );
   return getIt;
 }

@@ -15,7 +15,14 @@ class BootView extends StatefulWidget {
 }
 
 class _BootViewState extends State<BootView> {
-  final initialization = configureDependencies();
+  late final Future<void> initialization;
+
+  @override
+  void initState() {
+    super.initState();
+
+    initialization = configureDependencies();
+  }
 
   @override
   Widget build(BuildContext context) => Scaffold(

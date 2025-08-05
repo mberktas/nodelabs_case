@@ -38,9 +38,13 @@ dependencies:
   # UI
   shadcn_ui: ^0.28.2
   flutter_screenutil: ^5.9.3
+  visibility_detector: ^0.4.0+2
 
   # Storage
   flutter_secure_storage: ^9.2.4
+
+  # Image Picker
+  image_picker: ^1.1.2
 
 dev_dependencies:
   flutter_test:
