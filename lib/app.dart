@@ -19,14 +19,10 @@ class App extends StatelessWidget {
         locale: context.locale,
         localizationsDelegates: context.localizationDelegates,
         theme: ShadThemeData(
-          brightness: Brightness.light,
-          colorScheme: ShadZincColorScheme.light(),
-        ),
-        darkTheme: ShadThemeData(
           brightness: Brightness.dark,
           colorScheme: ShadZincColorScheme.dark(),
-          // radius: BorderRadius.circular(12),
         ),
+        themeMode: ThemeMode.dark,
       ),
     );
   }
